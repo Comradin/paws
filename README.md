@@ -26,6 +26,32 @@ func NewMyComponent(ctx *pulumi.Context, name string, myComponentArgs MyComponen
 }
 ```
 
+## Available Components
+
+### VPC Component (`paws:vpc:Vpc`)
+
+A reusable VPC component that provides a simplified interface for creating AWS VPCs with sensible defaults.
+
+**Features:**
+- IPv4 and IPv6 support
+- Configurable DNS settings
+- Instance tenancy options
+- IPAM integration support
+- Comprehensive output values for integration
+
+**Basic Usage:**
+```go
+vpc, err := vpc.NewVpc(ctx, "my-vpc", &vpc.VpcArgs{
+    CidrBlock: "10.0.0.0/16",
+    Tags: map[string]string{
+        "Name": "my-vpc",
+        "Environment": "development",
+    },
+})
+```
+
+See the [VPC component documentation](vpc/README.md) for detailed usage examples.
+
 ## Additional resources
 
 The above mentioned website suggests the following pages as additional
